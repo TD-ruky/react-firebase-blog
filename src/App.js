@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
+import PostDetails from "./pages/PostDetails";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -34,6 +35,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home isAuth={isAuth} />} />
+        <Route path="/:postId" element={<PostDetails/>} />
         <Route path="/createpost" element={<CreatePost isAuth={isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>

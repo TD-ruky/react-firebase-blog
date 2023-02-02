@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
+import { Link } from "react-router-dom";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -43,6 +44,9 @@ function Home({ isAuth }) {
             </div>
             <div className="postTextContainer"> {post.postText} </div>
             <h3>@{post.author.name}</h3>
+            <Link key={post.id} to={`/${post.id}`} className="project" id={post.id}>
+              <div className="details">Lien ici</div>
+            </Link>
           </div>
         );
       })}
